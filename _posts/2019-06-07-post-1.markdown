@@ -1,0 +1,50 @@
+---
+layout: post
+title:  "gtk4-rs: GTK 4 Rust Bindings Report 1"
+date:   2019-06-07 00:00:00 +0000
+---
+
+Hi and welcome to my GSoC blog! This is the first post in a series of reports on the progress of [GTK 4 Rust Bindings](https://summerofcode.withgoogle.com/projects/#5172521249275904).
+
+The initial development is driven by making simple programs and existing examples work, so that we have a set of core features to develop from.
+
+## Examples
+
+You can find example gtk4-rs programs at [https://github.com/sfanxiang/gtk-rs-examples4](https://github.com/sfanxiang/gtk-rs-examples4). It's based on [gtk-rs examples](https://github.com/gtk-rs/examples). Available examples include:
+```
+accessibility
+basic
+builder_basics
+cairotest
+cairo_threads
+clock
+css
+drag_and_drop
+drag_and_drop_textview
+grid
+gtktest
+listbox_model
+list_store
+menu_bar
+menu_bar_system
+multithreading_context
+multi_windows
+notebook
+overlay
+pango_attributes
+progress_tracker
+simple_treeview
+sync_widgets
+text_viewer
+transparent_main_window
+tree_model_sort
+treeview
+```
+
+## gtk4-rs
+
+The gtk4-rs repository is at [https://github.com/sfanxiang/gtk-rs-gtk4](https://github.com/sfanxiang/gtk-rs-gtk4). Currently this is a work in progress. Changes here most closely follows upstream gtk4. If there's anything special to point out, I'll note it in a future post.
+
+## graphene-rs
+
+The repository is at [https://github.com/sfanxiang/gtk-rs-graphene](https://github.com/sfanxiang/gtk-rs-graphene). It's feature-complete, with the exception of simd4f and simd4x4f. These are C structures and do not use the glib model.
