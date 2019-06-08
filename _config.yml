@@ -1,10 +1,10 @@
 # Site settings
-title: sfanxiang's blog
+title: GSoC 2019 Blogs
 email: sfanxiang@gmail.com
 description: >-
   Xiang Fan
 baseurl: "/"
-url: "https://sfanxiang.github.io"
+url: "https://sfanxiang.github.io/gsoc-2019"
 github_username: sfanxiang
 
 # Build settings
