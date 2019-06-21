@@ -1,0 +1,23 @@
+---
+layout: post
+title:  "gtk4-rs: GTK 4 Rust Bindings Report 2"
+date:   2019-06-21 00:00:00 +0000
+---
+
+This is the second post in a series of reports on the progress of [GTK 4 Rust Bindings](https://summerofcode.withgoogle.com/projects/#5172521249275904). You can find project links and repositories on [the about page](https://sfanxiang.github.io/gsoc-2019/about/).
+
+This development cycle focuses on gtk4-rs itself, while I continue to add more objects from gdk4 and gsk4 where needed. Another highlight is setting up continuous integration.
+
+## gtk4-rs
+
+The original plan for gtk4-rs includes adding some remaining objects that initially prevented gir codegen (mostly `missing memory management`), but many of them turned out to be private objects, implementation details, or otherwise supposed to be used within C. Objects that are useful among them were implemented manually.
+
+Another part of the change is integrating existing manually-implemented bindings from gtk3. Despite differences between gtk3 and gtk4, they do share a considerable amount of code.
+
+## Continuous Integration
+
+It became neccessary to set up CI when the project structure began to stabilize. After some try-and-error, I enabled CI for linux targets with gtk 3.96 (pre-release version), and rust 1.34.0 (stable), beta, and nightly. Without the distro providing gtk4, the entire gtk dependencies are built from source and stored in this [repo](https://github.com/sfanxiang/gtk-bootstrap). Apart from keeping the project coherent itself, CI also helps track upstream changes. Many errors were found immediately after it went up.
+
+## Misc.
+
+Other changes include retroactive bugfixes in gtk3-rs & gtk4-rs, and adapting to new upstream `Boxed` models.
