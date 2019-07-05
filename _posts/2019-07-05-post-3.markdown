@@ -1,0 +1,31 @@
+---
+layout: post
+title:  "gtk4-rs: GTK 4 Rust Bindings Report 3"
+date:   2019-07-05 00:00:00 +0000
+---
+
+This is the third post in a series of reports on the progress of [GTK 4 Rust Bindings](https://summerofcode.withgoogle.com/projects/#5172521249275904). You can find project links and repositories on [the about page](https://sfanxiang.github.io/gsoc-2019/about/).
+
+gtk4-rs, by now, should be relatively complete, with a few remaining functions to manually investigate and implement. All additions listed below are imported to the other crates as well if needed.
+
+## gtk4-rs
+
+- `AccelMap::foreach()` and `AccelMap::foreach_unfiltered()` are implemented.
+- `Actionable::set_action_target()` is implemented and upstreamed to gtk3.
+- `Builder::connect_signals_full()` is implemented. This addition will make it possible to designate which signal handler to use in builder files. It's planned to be upstreamed to gtk3 too.
+- `Editable::delegate_get_property()` and `Editable::delegate_set_property()` are implemented.
+- `Text` signals are implemented.
+
+## gdk4-rs
+
+- `Geometry` is implemented.
+- `KeymapKey` is implemented.
+- `Rectangle` is implemented and added to gtk4-rs.
+- `TimeCoord` is implemented and added to gtk4-rs.
+
+## gsk4-rs
+
+- `ColorStop` is implemented and added to gtk4-rs.
+- `RenderNode` is implemented and added to gtk4-rs. It uses an _ad hoc_ subtyping system for different types of render nodes, similar to [cairo patterns](https://github.com/gtk-rs/cairo/blob/804aad8b2fc00eaa99644bc03a381c7bd6a88d5c/src/patterns.rs).
+- `RoundedRect` is implemented and added to gtk4-rs.
+- `Shadow` is implemented and added to gtk4-rs.
