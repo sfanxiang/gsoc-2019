@@ -1,0 +1,32 @@
+---
+layout: post
+title:  "gtk4-rs: GTK 4 Rust Bindings Report 4"
+date:   2019-07-19 00:00:00 +0000
+---
+
+This is the fourth post in a series of reports on the progress of [GTK 4 Rust Bindings](https://summerofcode.withgoogle.com/projects/#5172521249275904). You can find project links and repositories on [the about page](https://sfanxiang.github.io/gsoc-2019/about/).
+
+Since the last post, the progress has been focused on adding in more objects to all of the gtk4 family. We're also working to integrate gtk4 into the existing gtk-rs ecosystem, starting from `gir-files`, the root dependency of all crates.
+
+## Upstreaming builder signals
+
+Although the pull request is still under review, once it's merged, we will be able to designate signal handlers in the builder file with `Builder::connect_signals()`. Unlike the GModule magic often used in C, the Rust version asks you to provide a callback to map each handler name to the handler to avoid breaking safety guarantees. We also plan to add an example similar to [this](https://github.com/sfanxiang/gtk-rs-examples4/blob/6ee2e6b3087c01cdc3a766feafb3d5520cd8ca01/src/bin/builder_signal.rs) to demonstrate its use.
+
+## Additions in gdk4-rs
+
+The following are implemented:
+```
+DrawContext::get_frame_region()
+pango_layout_get_clip_region()
+pango_layout_line_get_clip_region()
+Surface::create_similar_surface()
+Surface::set_opaque_region()
+```
+
+`cairo::Region` is added to gdk4.
+
+GDK events in gdk4 have been made into opaque types. I'm working on a simple typing system for them, similar to the one created for `RenderNode` in gsk4-rs.
+
+## Integration with gtk-rs
+
+The ultimate goal of this project is, of course, to integrate all the work back into [the gtk-rs ecosystem](https://gtk-rs.org/). The relevant gir files from gtk 3.96 (gtk4 development version) have been merged in [#39](https://github.com/gtk-rs/gir-files/pull/39). The next step is to merge sys crates (low-level API) in [#145](https://github.com/gtk-rs/sys/pull/145), and eventually upstream all the crates.
