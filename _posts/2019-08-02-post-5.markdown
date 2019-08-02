@@ -1,0 +1,22 @@
+---
+layout: post
+title:  "gtk4-rs: GTK 4 Rust Bindings Report 5"
+date:   2019-08-02 00:00:00 +0000
+---
+
+This is the fifth post in a series of reports on the progress of [GTK 4 Rust Bindings](https://summerofcode.withgoogle.com/projects/#5172521249275904). You can find project links and repositories on [the about page](https://sfanxiang.github.io/gsoc-2019/about/).
+
+Apart from preparing to upstream the crates, I've been keeping the shared code of gtk4-rs and gtk3-rs in sync and adding more types to gdk4-rs.
+
+## Merging graphene and graphene-sys in one repo
+
+The idea came from my mentor, Jordan Petridis. Managing graphene and graphene-sys in one place will make these relatively self-contained crates easier to maintain. A build system was set up for them. The graphene repo is now ready for upstreaming.
+
+## Additions to gdk4-rs
+
+- `ContentDeserializer` and `ContentDeserializer`, along with their helper functions, are implemented.
+- The `Event` typing system is implemented. It was determined from gdk4 source code whether a method applies to a subtype.
+
+## Rebasing examples
+
+A lot of changes after gtk4 examples branched were merged to gtk4 examples. New examples from upstream, namely `builders`, `clipboard_simple`, and `entry_completion`, are implemented in gtk4.
