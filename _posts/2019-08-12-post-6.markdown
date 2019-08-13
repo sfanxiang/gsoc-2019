@@ -1,0 +1,41 @@
+---
+layout: post
+title:  "gtk4-rs: GTK 4 Rust Bindings Final Report"
+date:   2019-08-12 00:00:00 +0000
+---
+
+This is the final report on [GTK 4 Rust Bindings](https://summerofcode.withgoogle.com/projects/#5172521249275904). You can find project links and repositories on [the about page](https://sfanxiang.github.io/gsoc-2019/about/).
+
+## Describe my work briefly
+
+- Add Rust support to the gtk4 toolkit, including
+  - gtk4
+  - gsk4
+  - gdk4
+  - graphene
+- Port gtk3 Rust examples to gtk4.
+
+## What is done
+
+- gtk4-rs: [https://github.com/gtk-rs/gtk4](https://github.com/gtk-rs/gtk4)
+
+The is the main API for gtk4 software development. Changes in gtk4 are reflected here, including new layout managers, deprecation of child properties, and new/removed widgets.
+
+- gsk4-rs: [https://github.com/gtk-rs/gsk4](https://github.com/gtk-rs/gsk4)
+
+The new GTK Scene Kit API callable from Rust, featuring the extensive render nodes type system highlighted in previous posts.
+
+- gdk4-rs: [https://github.com/gtk-rs/gdk4](https://github.com/gtk-rs/gdk4)
+
+gdk4 has undergone a lot of changes since its last version, with refined interaction between gtk. It's overhauled event system was specially bound in Rust too.
+
+- graphene-rs: [https://github.com/gtk-rs/graphene](https://github.com/gtk-rs/graphene)
+- examples: [https://github.com/sfanxiang/gtk-rs-examples4](https://github.com/sfanxiang/gtk-rs-examples4) (will be upstreamed)
+- Low-level, unsafe bindings: [https://github.com/gtk-rs/sys/pull/145](https://github.com/gtk-rs/sys/pull/145)
+- Automatic creation of gtk4 dependency bundle: [https://github.com/sfanxiang/gtk-bootstrap](https://github.com/sfanxiang/gtk-bootstrap)
+
+## Future work
+
+- Improve Rust-specific documentation in https://github.com/gtk-rs/lgpl-docs.
+- More bindings. There's always more we can do.
+- CI support for OSX and Windows.
